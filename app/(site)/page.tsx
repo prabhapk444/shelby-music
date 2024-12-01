@@ -20,8 +20,6 @@ import getItemSongs from '@/actions/getItemSongs';
 import Footer from '@/Components/Footer';
 
 
-export const revalidate = 0;
-
 export default function Home() {
 
   const [lovesongs, setLoveSongs] = useState<Song[]>([]);
