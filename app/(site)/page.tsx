@@ -8,8 +8,6 @@ import { useEffect, useState } from 'react';
 import getSadSong from '@/actions/getSadSong';
 import PageContent from './components/PageContent';
 import { Song } from '@/types';
-import getOldSongs from '@/actions/getOldSongs';
-import getChristmasSongs from '@/actions/getChristmasSongs';
 import getHollywoodSongs from '@/actions/getHollywoodSongs';
 import getFrienshipSong from '@/actions/getFriendshipSongs';
 import getRapSongs from '@/actions/getRapSongs';
@@ -32,8 +30,6 @@ export default function Home() {
   const [MalayalamSongs,setMalayalamSongs] = useState<Song[]>([]);
   const [HindiSongs,setHindiSongs] = useState<Song[]>([]);
   const [TeleguSongs,setTeleguSongs] = useState<Song[]>([]); 
-  const [OldSongs,setOldSongs] = useState<Song[]>([]);
-  const [ChristmasSongs,setChristmasSongs] = useState<Song[]>([]);
   const [ItemSongs,setItemSongs] = useState<Song[]>([]);
   useEffect(() => {
     const fetchSongs = async () => {
@@ -49,8 +45,6 @@ export default function Home() {
           MalayalamSongData,
           HindiSongsData,
           TeleguSongsData,
-          OldSongsData,
-          ChristmasSongsData,
           ItemSongsData,
         ] = await Promise.all([
           getLoveSong(),
@@ -63,8 +57,6 @@ export default function Home() {
           getMalayalamSongs(),
           getHindiSongs(),
           getTeleguSongs(),
-          getOldSongs(),
-          getChristmasSongs(),
           getItemSongs(),
         ]);
   
@@ -78,8 +70,6 @@ export default function Home() {
         setMalayalamSongs(MalayalamSongData);
         setHindiSongs(HindiSongsData);
         setTeleguSongs(TeleguSongsData);
-        setOldSongs(OldSongsData);
-        setChristmasSongs(ChristmasSongsData);
         setItemSongs(ItemSongsData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -187,20 +177,6 @@ export default function Home() {
           <h1 className="text-white text-2xl font-semibold">Telugu Songs</h1>
         </div>
         <PageContent songs={TeleguSongs}/>
-      </div>
-
-      <div className="mt-2 mb-7 px-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-white text-2xl font-semibold">Old Hits</h1>
-        </div>
-        <PageContent songs={OldSongs} />
-      </div>
-
-      <div className="mt-2 mb-7 px-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-white text-2xl font-semibold">Christmas Songs</h1>
-        </div>
-        <PageContent songs={ChristmasSongs} />
       </div>
       <Footer/>
     </div>
