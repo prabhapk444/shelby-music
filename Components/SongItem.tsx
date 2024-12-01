@@ -114,7 +114,7 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
           quality={75}
           fill
           unoptimized={true}
-          loading="lazy"
+          priority
         />
       </div>
       <div className="flex flex-col items-start w-full pt-4 gap-y-1">

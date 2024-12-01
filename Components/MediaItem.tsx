@@ -29,7 +29,7 @@ const MediaItem :React.FC<MediaItemProps>=({data,onClick})=>{
            <div className="relative rounded-md min-h-[48px] min-w-[48px] overflow-hidden">
               <Image src={imageUrl || ('images/liked.png')}  quality={75}
           fill
-          unoptimized={true} alt="image" className="object-cover" loading="lazy" />
+          unoptimized={true} alt="image" className="object-cover" priority/>
            </div>
            <div className="flex flex-col gap-y-1 overflow-hidden">
              <p className="text-white truncate">{data.title}</p>
